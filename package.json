@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -7,6 +7,11 @@
     "dist",
     "src"
   ],
+  "homepage": "https://clonardo.github.io/plottery",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clonardo/plottery.git"
+  },
   "engines": {
     "node": ">=10"
   },
