@@ -12,10 +12,21 @@ import {
   MapSeries,
   EMITTER_EXPORT_CHART_FAIL,
   ChartExportButton,
+  GetDateFromApiText,
 } from '../src';
+import { orderBy, filter } from 'lodash';
 
+const MIN_DATE = GetDateFromApiText('2020-03-01');
 // Data from https://github.com/nytimes/covid-19-data/blob/master/us-states.csv
-const ronaDataIn: Corowna[] = require('./rona.json');
+const ronaDataIn: Corowna[] = orderBy(
+  filter(require('./rona.json') as Corowna[], (record: Corowna) => {
+    return GetDateFromApiText(record.date) >= MIN_DATE;
+  }),
+  (record: Corowna) => {
+    return GetDateFromApiText(record.date);
+  },
+  ['asc']
+);
 
 /**
  * 1 row of coronavirus data

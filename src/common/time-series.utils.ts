@@ -18,6 +18,15 @@ export const GetStandardizedDateKeyForApi = (d: Date): string => {
 };
 
 /**
+ * Convert dates from the YYYY-MM-DD format to JS dates
+ *
+ * @param d Date to be converted
+ */
+export const GetDateFromApiText = (d: string): Date => {
+  return moment(d, API_DATE_FORMAT).toDate();
+};
+
+/**
  * Figure out whether a series should be shown or hidden by default based on its display name
  * See https://plot.ly/javascript/reference/#scatter-visible handle visibility=legendonly for details
  * Returns true/visible by default
